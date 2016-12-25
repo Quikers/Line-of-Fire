@@ -1,0 +1,91 @@
+th, table.dataTable tbody td {
+    padding: 15px;
+}
+
+#table_paginate {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#table_info {
+    position: absolute;
+    top: -2px;
+    left: 225px;
+    text-align: center;
+    
+    pointer-events: none;
+}
+
+#table_paginate .paginate_button {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#table_paginate .paginate_button:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#table_wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#table_wrapper * {
+    color: white;
+}
+
+#table_wrapper thead {
+    text-shadow: none;
+    border-bottom-color: white;
+}
+
+#table_wrapper th {
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom-color: white;
+    transition: 150ms;
+}
+
+#table_wrapper th:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#table_wrapper th.sorting_asc, #table_wrapper th.sorting_desc {
+    background: rgba(0, 0, 0, 0.5);
+    transition: 150ms;
+}
+
+#table_wrapper tr {
+    background: rgba(255, 255, 255, 0.25);
+    border-top-color: rgb(17, 17, 17);
+    transition: 150ms;
+}
+
+#table_wrapper tr:hover {
+    background: rgb(44,44,44);
+}
+
+#table_wrapper td {
+    background: rgba(0, 0, 0, 0.3);
+    border-top-color: rgb(17, 17, 17);
+}
+
+#table_wrapper td.sorting, #table_wrapper td.sorting_1, #table_wrapper td.sorting_2, #table_wrapper td.sorting_3 {
+    background: rgba(0, 0, 0, 0.15);
+    transition: 150ms;
+}
+
+#table_wrapper #table_filter {
+    float: left;
+    margin-bottom: 10px;
+}
+
+#table_wrapper #table_filter label {
+    height: 100%;
+}
+
+#table_wrapper #table_filter input {
+    margin-left: 0;
+}
