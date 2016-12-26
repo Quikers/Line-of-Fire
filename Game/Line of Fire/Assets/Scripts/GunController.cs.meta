@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: 533c3c7d7c88d6c46bc517fe52fb0ecc
-timeCreated: 1482721467
+timeCreated: 1482757202
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - GunFirePos: {instanceID: 0}
+  - ObjectToSpawn: {fileID: 1788604120649316, guid: 9ac334e689d8fe04783a0a1bddc94705,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

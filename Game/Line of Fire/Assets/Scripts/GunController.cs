@@ -5,6 +5,7 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     public GameObject GunFirePos;
+    public GameObject ObjectToSpawn;
     LineRenderer LR;
 
     void Start()
@@ -29,6 +30,9 @@ public class GunController : MonoBehaviour
         if( Physics.Raycast( rayOrigin, Camera.main.transform.forward, out hit, 50f ) )
         {
             LR.SetPosition( 1, hit.point );
+
+            for (int i = 0; i < 10; i++) 
+                Instantiate( ObjectToSpawn, hit.point, new Quaternion() );
         }
         else
             LR.SetPosition( 1, rayOrigin + ( Camera.main.transform.forward * 50f ) );
