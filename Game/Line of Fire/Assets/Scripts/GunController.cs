@@ -6,44 +6,45 @@ public class GunController : MonoBehaviour
 {
     public GameObject GunFirePos;
     public GameObject ObjectToSpawn;
-    LineRenderer LR;
+    public float FireRate = .066f;
+    public bool BulletTracing;
 
-    void Start()
-    {
-        LR = GetComponent<LineRenderer>();
-    }
+    private float _nextFire;
+    private Vector3 _rayOrigin;
 
     void Update()
     {
 
-        if( !Input.GetMouseButton( 0 ) )
+        if( !Input.GetButton( "Fire1" ) || !( Time.time > _nextFire ) )
             return;
 
-        StartCoroutine( shoot() );
+        _nextFire = Time.time + FireRate;
 
-        Vector3 rayOrigin = Camera.main.ViewportToWorldPoint( new Vector3( 0.5f, 0.5f ) );
+
+        _rayOrigin = Camera.main.ViewportToWorldPoint( new Vector3( 0.5f, 0.5f ) );
 
         RaycastHit hit;
-
-        LR.SetPosition( 0, GunFirePos.transform.position );
-
-        if( Physics.Raycast( rayOrigin, Camera.main.transform.forward, out hit, 50f ) )
+        
+        if( Physics.Raycast( _rayOrigin, Camera.main.transform.forward, out hit, 50f ) )
         {
-            LR.SetPosition( 1, hit.point );
-
             for (int i = 0; i < 10; i++) 
                 Instantiate( ObjectToSpawn, hit.point, new Quaternion() );
         }
-        else
-            LR.SetPosition( 1, rayOrigin + ( Camera.main.transform.forward * 50f ) );
 
-        
+        if( BulletTracing )
+            BulletTrace();
     }
 
-    IEnumerator shoot()
+    void BulletTrace()
     {
-        LR.enabled = true;
-        yield return new WaitForSeconds( 0.7f );
-        LR.enabled = false;
+        LineRenderer LR = new GameObject(name: "Debug Line Renderer").AddComponent<LineRenderer>();
+
+        LR.startWidth = 0.03f;
+        LR.endWidth = 0.03f;
+
+        LR.SetPosition( 0, GunFirePos.transform.position );
+
+        LR.SetPosition( 1, _rayOrigin + ( Camera.main.transform.forward * 50f ) );
+
     }
 }
