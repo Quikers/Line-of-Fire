@@ -19,13 +19,13 @@ Platform assembly: D:\github\Line-of-Fire\Game\Line of Fire\game_Data\Managed\Un
 Loading D:\github\Line-of-Fire\Game\Line of Fire\game_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: D:\github\Line-of-Fire\Game\Line of Fire\game_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading D:\github\Line-of-Fire\Game\Line of Fire\game_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.326 seconds
+- Completed reload, in  0.064 seconds
 Platform assembly: D:\github\Line-of-Fire\Game\Line of Fire\game_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\github\Line-of-Fire\Game\Line of Fire\game_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3600x1080 at -1680,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.432650 ms
+UnloadTime: 1.717190 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1c64 -> priority: 1 
+  Thread -> id: 3230 -> priority: 1 

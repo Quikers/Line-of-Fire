@@ -25,10 +25,9 @@ public class GunController : MonoBehaviour
 
         RaycastHit hit;
         
-        if( Physics.Raycast( _rayOrigin, Camera.main.transform.forward, out hit, 50f ) )
+        if( Physics.Raycast( _rayOrigin, Camera.main.transform.forward, out hit, 200f ) )
         {
-            for (int i = 0; i < 10; i++) 
-                Instantiate( ObjectToSpawn, hit.point, new Quaternion() );
+            Instantiate( ObjectToSpawn, hit.point, new Quaternion() );
         }
 
         if( BulletTracing )
@@ -44,7 +43,7 @@ public class GunController : MonoBehaviour
 
         LR.SetPosition( 0, GunFirePos.transform.position );
 
-        LR.SetPosition( 1, _rayOrigin + ( Camera.main.transform.forward * 50f ) );
+        LR.SetPosition( 1, _rayOrigin + ( Camera.main.transform.forward * 200f ) );
 
     }
 }
