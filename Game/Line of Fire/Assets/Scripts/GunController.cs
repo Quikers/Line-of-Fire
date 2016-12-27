@@ -7,6 +7,7 @@ public class GunController : MonoBehaviour
     public GameObject GunFirePos;
     public GameObject ObjectToSpawn;
     public float FireRate = .066f;
+    public float FiringRange = 100f;
     public bool BulletTracing;
 
     private float _nextFire;
@@ -24,18 +25,24 @@ public class GunController : MonoBehaviour
         _rayOrigin = Camera.main.ViewportToWorldPoint( new Vector3( 0.5f, 0.5f ) );
 
         RaycastHit hit;
-        
-        if( Physics.Raycast( _rayOrigin, Camera.main.transform.forward, out hit, 50f ) )
-        {
-            for (int i = 0; i < 10; i++) 
-                Instantiate( ObjectToSpawn, hit.point, new Quaternion() );
-        }
 
-        if( BulletTracing )
-            BulletTrace();
+        if( Physics.Raycast( _rayOrigin, Camera.main.transform.forward, out hit, FiringRange ) )
+        {
+            for( int i = 0; i < 10; i++ )
+                Instantiate( ObjectToSpawn, hit.point, new Quaternion() );
+
+            if( BulletTracing )
+                BulletTrace( hit.point );
+        }
+        else
+        {
+            if( BulletTracing )
+                BulletTrace( Vector3.down );
+
+        }
     }
 
-    void BulletTrace()
+    void BulletTrace(Vector3 point)
     {
         LineRenderer LR = new GameObject(name: "Debug Line Renderer").AddComponent<LineRenderer>();
 
@@ -44,7 +51,6 @@ public class GunController : MonoBehaviour
 
         LR.SetPosition( 0, GunFirePos.transform.position );
 
-        LR.SetPosition( 1, _rayOrigin + ( Camera.main.transform.forward * 50f ) );
-
+        LR.SetPosition( 1, point != Vector3.down ? point : _rayOrigin + ( Camera.main.transform.forward * FiringRange ) );
     }
 }
