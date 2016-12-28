@@ -9,7 +9,7 @@ public class HandleChatbox : MonoBehaviour {
     public InputField Textbox;
     public ScrollRect Messagebox;
     public Text text;
-    public bool Chatting;
+    public static bool Chatting;
 
     // Use this for initialization
     void Start () {
@@ -22,7 +22,7 @@ public class HandleChatbox : MonoBehaviour {
 	
 	// Update is called once per frame
     void Update() {
-        if (Input.GetButtonUp("Enter")) {
+        if (Input.GetKey(KeyCode.Return)) {
             if (Chatting) {
                 AppendMessage(Textbox.text);
             }
